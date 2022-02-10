@@ -12,7 +12,7 @@ INSTANCES = [
 ]
 
 DATE_FROM = ""
-DARE_TO = ""
+DATE_TO = ""
 
 
 env = Environment(loader=FileSystemLoader("templates"))
