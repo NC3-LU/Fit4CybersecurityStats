@@ -39,4 +39,4 @@ def stats():
 
 
 if __name__ == "__main__":
-    application.run()
+    application.run(host=application.config["HOST"], port=application.config["PORT"])
