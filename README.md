@@ -19,6 +19,13 @@ $ python runserver.py
 
 ```
 
+## Deploy to Heroku
+
+Simply with this button:
+
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/CASES-LU/Fit4CybersecurityStats)
+
+
 
 ## License
 
