@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
+import os
 from flask import Flask, render_template
 from bokeh.embed import components
 from bokeh.resources import INLINE
@@ -37,4 +37,6 @@ def bokeh():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    HOST = "0.0.0.0"
+    PORT = os.environ.get("PORT", 5000)
+    app.run(host=HOST, port=PORT)

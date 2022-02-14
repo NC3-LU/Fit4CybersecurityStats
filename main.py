@@ -37,6 +37,7 @@ def survey_per_company_size(instance):
 
 
 if __name__ == "__main__":
+    # Point of entry in execution mode
     markdown_content = ""
     for instance in INSTANCES:
         markdown_content_company_sector, _ = survey_per_company_sector(instance)
