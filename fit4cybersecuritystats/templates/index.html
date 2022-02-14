@@ -1,20 +1,21 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>Fit4Cybersecurity agglomerated stats</title>
-    {{ js_resources|indent(4)|safe }}
-    {{ css_resources|indent(4)|safe }}
-    {% for name, component in components_instances.items() %}
-        {{ component[0]|indent(4)|safe }}
-    {% endfor %}
-  </head>
-  <body>
-    <h1>Survey per company sector</h1>
-    {% for name, component in components_instances.items() %}
-      <h2>Instance <a id="sector-{{ name }}" href="{{ component[2] }}/stats" rel="noopener noreferrer" target="_blank">{{ name }}</a></h2>
-      {{ component[1]|indent(4)|safe }}
-    {% endfor %}
-  </body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<h1 id="main">Fit4Cybersecurity</h1>
+<p><a href="https://github.com/CASES-LU/Fit4Cybersecurity" rel="noopener noreferrer" target="_blank">Fit4Cybersecurity</a>
+is a self-assessment tool by CASES to help business owners
+implement a better cybersecurity strategy.<br />
+Its main goal is to allow users to quickly assess their information security
+maturity in different areas that CASES considers critical.
+</p>
+
+<p>As an example this tool allows instantiation of the following self-assessment
+websites:
+<ul>
+<li>Fit4Cybersecurity,</li>
+<li>Fit4Privacy,</li>
+<li>OperatorSurvey.</li>
+</ul></p>
+
+<p>You can visit <a href="/stats">this page</a> which is federating statistical
+data from the previously mentioned Fit4Cybersecurity instances.</p>
+{% endblock %}

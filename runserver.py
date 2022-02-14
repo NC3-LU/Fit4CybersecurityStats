@@ -12,7 +12,7 @@ from fit4cybersecuritystats.charts import survey_per_company_sector_chart
 
 @application.route("/")
 def index():
-    return "Hello world!"
+    return render_template("index.html")
 
 
 @application.route("/stats/")
@@ -30,12 +30,18 @@ def stats():
 
     # render template
     html = render_template(
-        "index.html",
+        "stats.html",
         components_instances=components_instances,
         js_resources=js_resources,
         css_resources=css_resources,
     )
     return html
+
+
+@application.route("/human.txt", methods=["GET"])
+def human():
+    """Human dot txt page."""
+    return render_template("human.txt"), 200, {"Content-Type": "text/plain"}
 
 
 if __name__ == "__main__":
