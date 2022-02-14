@@ -5,7 +5,7 @@ from urllib.parse import urljoin
 import requests
 from jinja2 import Environment, FileSystemLoader
 
-from charts import survey_per_company_sector_chart
+from fit4cybersecuritystats.charts import survey_per_company_sector_chart
 
 INSTANCES = [
     ("Fit4Cybersecurity", "https://fit4cybersecurity.cases.lu/"),
