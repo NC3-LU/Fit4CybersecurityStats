@@ -1,0 +1,19 @@
+{
+    "name": "Fit4Cybersecurity - Stats aggregator",
+    "description": "Stats aggregator with data from Fit4CyberSecurity instances.",
+    "keywords": [
+        "Fit4Cybersecurity",
+        "Suerveys",
+        "Self-assessment"
+    ],
+    "website": "https://github.com/CASES-LU/Fit4CybersecurityStats",
+    "repository": "https://github.com/CASES-LU/Fit4CybersecurityStats",
+    "scripts": {
+        "postdeploy": "pybabel compile -d mosp/translations && flask db_init && flask create_admin --login admin --email admin@example.org --password password && flask import_licenses_from_spdx"
+    },
+    "buildpacks": [
+        {
+            "url": "https://github.com/heroku/heroku-buildpack-python"
+        }
+    ]
+}
