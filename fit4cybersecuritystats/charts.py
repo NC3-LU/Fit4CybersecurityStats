@@ -15,7 +15,11 @@ def survey_per_company_sector_chart(stats):
         pd.Series(stats).reset_index(name="value").rename(columns={"index": "sector"})
     )
     data["angle"] = data["value"] / data["value"].sum() * 2 * pi
-    data["color"] = Category20c[len(stats)]
+    try:
+        data["color"] = Category20c[len(stats)]
+    except KeyError:
+        # if length is < 3
+        data["color"] = ("#3182bd",)
 
     p = figure(
         height=800,
