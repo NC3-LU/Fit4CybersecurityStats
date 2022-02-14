@@ -1,5 +1,7 @@
 ## Presentation
 
+[![License](https://img.shields.io/github/license/CASES-LU/Fit4CybersecurityStats.svg?style=flat-square)](https://www.gnu.org/licenses/agpl-3.0.html)
+
 Agglomerates stats of several
 [Fit4Cybersecurity](https://github.com/CASES-LU/Fit4Cybersecurity) instances.
 
@@ -8,7 +10,7 @@ Agglomerates stats of several
 
 
 ```bash
-$ poetry install
+$ make install
 ```
 
 ### Generate markdown (static)
