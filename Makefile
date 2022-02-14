@@ -15,7 +15,7 @@ activate:
 	poetry shell
 
 markdown:
-	poetry run python main.py
+	poetry run python generate_markdown.py
 
 runserver:
 	poetry run python runserver.py

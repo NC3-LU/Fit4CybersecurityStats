@@ -2,23 +2,27 @@
 # -*- coding: utf-8 -*-
 
 import os
-from flask import Flask, render_template
+from flask import render_template
 from bokeh.embed import components
 from bokeh.resources import INLINE
 
-from main import INSTANCES, survey_per_company_sector
+from fit4cybersecuritystats.bootstrap import application
+from instance.production import INSTANCES
+from fit4cybersecuritystats.fetcher import survey_per_company_sector
 from fit4cybersecuritystats.charts import survey_per_company_sector_chart
 
 
-app = Flask(__name__)
+@application.route("/")
+def index():
+    return "Hello world!"
 
 
-@app.route("/stats/")
+@application.route("/stats/")
 def stats():
     # bokeh.embed.components returns the script and div HTML tags for the page
     components_instances = {}
     for instance in INSTANCES:
-        _, stats = survey_per_company_sector((instance[0], instance[1]))
+        stats = survey_per_company_sector((instance[0], instance[1]))
         fig = survey_per_company_sector_chart(stats)
         components_instances[instance[0]] = components(fig) + (instance[1],)
 
@@ -39,4 +43,4 @@ def stats():
 if __name__ == "__main__":
     HOST = "0.0.0.0"
     PORT = os.environ.get("PORT", 5000)
-    app.run(host=HOST, port=PORT)
+    application.run(host=HOST, port=PORT)
