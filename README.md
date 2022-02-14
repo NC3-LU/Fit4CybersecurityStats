@@ -9,14 +9,13 @@ $ poetry install
 Generate markdown
 
 ```bash
-$ python main.py
+$ make markdown
 ```
 
 Launch the web server
 
 ```bash
-$ python runserver.py
-
+$ make runserver
 ```
 
 ## Deploy to Heroku
