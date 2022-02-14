@@ -1,3 +1,8 @@
+## Presentation
+
+Agglomerates stats of several
+[Fit4Cybersecurity](https://github.com/CASES-LU/Fit4Cybersecurity) instances.
+
 
 ## Installation
 
@@ -6,13 +11,13 @@
 $ poetry install
 ```
 
-Generate markdown
+### Generate markdown (static)
 
 ```bash
 $ make markdown
 ```
 
-Launch the web server
+### Launch the web server (dynamic)
 
 ```bash
 $ make runserver
