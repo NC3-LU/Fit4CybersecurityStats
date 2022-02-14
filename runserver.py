@@ -13,14 +13,14 @@ from fit4cybersecuritystats.charts import survey_per_company_sector_chart
 app = Flask(__name__)
 
 
-@app.route("/")
-def bokeh():
-    # components will embed the script and div HTML tags for the page
+@app.route("/stats/")
+def stats():
+    # bokeh.embed.components returns the script and div HTML tags for the page
     components_instances = {}
     for instance in INSTANCES:
         _, stats = survey_per_company_sector((instance[0], instance[1]))
         fig = survey_per_company_sector_chart(stats)
-        components_instances[instance[0]] = components(fig)
+        components_instances[instance[0]] = components(fig) + (instance[1],)
 
     # grab the static resources
     js_resources = INLINE.render_js()

@@ -17,7 +17,7 @@ activate:
 markdown:
 	python main.py
 
-run:
+runserver:
 	python runserver.py
 
 update:

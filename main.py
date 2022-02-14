@@ -8,7 +8,7 @@ from jinja2 import Environment, FileSystemLoader
 from fit4cybersecuritystats.charts import survey_per_company_sector_chart
 
 INSTANCES = [
-    ("Fit4Cybersecurity", "https://fit4cybersecurity.cases.lu/"),
+    ("Fit4Cybersecurity", "https://fit4cybersecurity.cases.lu"),
     ("Fit4Privacy", "https://fit4privacy.cases.lu"),
     ("Fit4Privacy Demo", "https://fit4cybersecurity-demo.cases.lu"),
 ]
