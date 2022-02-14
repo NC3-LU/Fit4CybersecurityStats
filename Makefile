@@ -15,10 +15,10 @@ activate:
 	poetry shell
 
 markdown:
-	python main.py
+	poetry run python main.py
 
 runserver:
-	python runserver.py
+	poetry run python runserver.py
 
 update:
 	poetry install --no-dev
