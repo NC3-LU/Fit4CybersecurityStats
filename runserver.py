@@ -6,8 +6,8 @@ from flask import Flask, render_template
 from bokeh.embed import components
 from bokeh.resources import INLINE
 
+from main import INSTANCES, survey_per_company_sector
 from fit4cybersecuritystats.charts import survey_per_company_sector_chart
-from fit4cybersecuritystats.main import INSTANCES, survey_per_company_sector
 
 
 app = Flask(__name__)

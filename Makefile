@@ -15,7 +15,7 @@ activate:
 	poetry shell
 
 markdown:
-	cd fit4cybersecuritystats; python main.py
+	python main.py
 
 run:
 	python runserver.py
