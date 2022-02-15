@@ -21,7 +21,7 @@ def survey_per_company_sector_chart(stats):
         # if length is < 3
         data["color"] = ("#3182bd",)
 
-    p = figure(
+    plot = figure(
         height=800,
         width=1200,
         title="Pie Chart",
@@ -31,7 +31,7 @@ def survey_per_company_sector_chart(stats):
         x_range=(-0.5, 1.0),
     )
 
-    p.wedge(
+    plot.wedge(
         x=0,
         y=1,
         radius=0.4,
@@ -43,11 +43,11 @@ def survey_per_company_sector_chart(stats):
         source=data,
     )
 
-    p.axis.axis_label = None
-    p.axis.visible = False
-    p.grid.grid_line_color = None
-    p.background_fill_color = None
-    p.border_fill_color = None
-    # export_png(p, filename="plot.png")
-    # show(p)
-    return p
+    plot.axis.axis_label = None
+    plot.axis.visible = False
+    plot.grid.grid_line_color = None
+    plot.background_fill_color = None
+    plot.border_fill_color = None
+    # export_png(plot, filename="plot.png")
+    # show(plot)
+    return plot

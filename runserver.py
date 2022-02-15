@@ -17,12 +17,21 @@ def index():
 
 @application.route("/stats/")
 def stats():
-    # bokeh.embed.components returns the script and div HTML tags for the page
+    """Returns a page with charts generated with data from several remote
+    Fit4Cybersecurity instances.
+    """
     components_instances = {}
     for instance in application.config["INSTANCES"]:
-        stats = survey_per_company_sector((instance[0], instance[1]))
+        try:
+            # get the stats from remote Fit4Cybersecurity instances
+            stats = survey_per_company_sector((instance[0], instance[1]))
+        except Exception:
+            continue
+        # generate chart with stats data
         fig = survey_per_company_sector_chart(stats)
+        # create components for the HTML tempate
         components_instances[instance[0]] = components(fig) + (instance[1],)
+        # bokeh.embed.components returns the script and div HTML tags
 
     # grab the static resources
     js_resources = INLINE.render_js()
