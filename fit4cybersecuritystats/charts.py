@@ -19,7 +19,7 @@ def survey_per_company_sector_chart(stats):
         data["color"] = Category20c[len(stats)]
     except KeyError:
         # if length is < 3
-        data["color"] = ("#3182bd",)
+        data["color"] = ("#3182bd", "#6baed6", "#9ecae1")[: len(stats)]
 
     plot = figure(
         height=800,

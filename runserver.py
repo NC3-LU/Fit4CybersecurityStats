@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from flask import render_template
+from flask import render_template, request
 from bokeh.embed import components
 from bokeh.resources import INLINE
 
@@ -23,12 +23,15 @@ def stats():
     """Returns a page with charts generated with data from several remote
     Fit4Cybersecurity instances.
     """
+    date_from = request.args.get("from", "2022-01-01")
     sectors_components_instances = {}
     size_components_instances = {}
     for instance in application.config["INSTANCES"]:
         try:
             # get the stats from remote Fit4Cybersecurity instances
-            stats_sectors = survey_per_company_sector((instance[0], instance[1]))
+            stats_sectors = survey_per_company_sector(
+                (instance[0], instance[1]), {"from": date_from}
+            )
         except Exception:
             continue
         # generate chart with stats data
@@ -39,7 +42,9 @@ def stats():
 
         try:
             # get the stats from remote Fit4Cybersecurity instances
-            stats_sizes = survey_per_company_size((instance[0], instance[1]))
+            stats_sizes = survey_per_company_size(
+                (instance[0], instance[1]), {"from": date_from}
+            )
         except Exception:
             continue
         fig_sizes = survey_per_company_sector_chart(stats_sizes)
