@@ -14,6 +14,8 @@ Jinja2 = "^3.0.3"
 bokeh = "^2.4.2"
 pandas = "^1.4.1"
 Flask = "^2.0.2"
+mypy = "^0.931"
+types-requests = "^2.27.9"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^4.0.1"
@@ -21,3 +23,18 @@ flake8 = "^4.0.1"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+python_version = "3.10"
+check_untyped_defs = true
+ignore_errors = false
+ignore_missing_imports = true
+strict_optional = true
+no_implicit_optional = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unused_configs = true
+warn_unreachable = true
+
+show_error_context = true
+pretty = true

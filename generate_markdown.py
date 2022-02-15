@@ -4,7 +4,7 @@
 from jinja2 import Environment, PackageLoader
 
 from instance.production import INSTANCES
-from fit4cybersecuritystats.fetcher import survey_per_company_sector
+from fit4cybersecuritystats.fetchers import survey_per_company_sector
 
 
 DATE_FROM = ""

@@ -6,7 +6,10 @@ from bokeh.embed import components
 from bokeh.resources import INLINE
 
 from fit4cybersecuritystats.bootstrap import application
-from fit4cybersecuritystats.fetcher import survey_per_company_sector
+from fit4cybersecuritystats.fetchers import (
+    survey_per_company_sector,
+    survey_per_company_size,
+)
 from fit4cybersecuritystats.charts import survey_per_company_sector_chart
 
 
@@ -20,18 +23,27 @@ def stats():
     """Returns a page with charts generated with data from several remote
     Fit4Cybersecurity instances.
     """
-    components_instances = {}
+    sectors_components_instances = {}
+    size_components_instances = {}
     for instance in application.config["INSTANCES"]:
         try:
             # get the stats from remote Fit4Cybersecurity instances
-            stats = survey_per_company_sector((instance[0], instance[1]))
+            stats_sectors = survey_per_company_sector((instance[0], instance[1]))
         except Exception:
             continue
         # generate chart with stats data
-        fig = survey_per_company_sector_chart(stats)
-        # create components for the HTML tempate
-        components_instances[instance[0]] = components(fig) + (instance[1],)
-        # bokeh.embed.components returns the script and div HTML tags
+        fig_sectors = survey_per_company_sector_chart(stats_sectors)
+        sectors_components_instances[instance[0]] = components(fig_sectors) + (
+            instance[1],
+        )
+
+        try:
+            # get the stats from remote Fit4Cybersecurity instances
+            stats_sizes = survey_per_company_size((instance[0], instance[1]))
+        except Exception:
+            continue
+        fig_sizes = survey_per_company_sector_chart(stats_sizes)
+        size_components_instances[instance[0]] = components(fig_sizes) + (instance[1],)
 
     # grab the static resources
     js_resources = INLINE.render_js()
@@ -40,7 +52,8 @@ def stats():
     # render template
     html = render_template(
         "stats.html",
-        components_instances=components_instances,
+        sectors_components_instances=sectors_components_instances,
+        size_components_instances=size_components_instances,
         js_resources=js_resources,
         css_resources=css_resources,
     )

@@ -3,18 +3,23 @@
 {{ super() }}
 {{ js_resources|indent(4)|safe }}
 {{ css_resources|indent(4)|safe }}
-{% for name, component in components_instances.items() %}
+{% for name, component in sectors_components_instances.items() %}
+{{ component[0]|indent(4)|safe }}
+{% endfor %}
+{% for name, component in size_components_instances.items() %}
 {{ component[0]|indent(4)|safe }}
 {% endfor %}
 {% endblock %}
 {% block content %}
 <h1>Surveys per company sector</h1>
-<div class="flex-container">
-{% for name, component in components_instances.items() %}
-<div>
+{% for name, component in sectors_components_instances.items() %}
 <h2>Instance <a id="sector-{{ name }}" href="{{ component[2] }}/stats" rel="noopener noreferrer" target="_blank">{{ name }}</a></h2>
 {{ component[1]|indent(4)|safe }}
-</div>
 {% endfor %}
-</div>
+
+<h1>Surveys per company size</h1>
+{% for name, component in size_components_instances.items() %}
+<h2>Instance <a id="sector-{{ name }}" href="{{ component[2] }}/stats" rel="noopener noreferrer" target="_blank">{{ name }}</a></h2>
+{{ component[1]|indent(4)|safe }}
+{% endfor %}
 {% endblock %}
