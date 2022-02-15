@@ -13,4 +13,5 @@ if ON_HEROKU:
     # Deployment on Heroku
     application.config.from_pyfile("heroku.py", silent=False)
 else:
-    application.config.from_pyfile("production.py", silent=False)
+    app_config = os.environ.get("FLASK_APP_CONFIG", "production.py")
+    application.config.from_pyfile(app_config, silent=False)
