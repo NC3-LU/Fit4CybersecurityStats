@@ -14,6 +14,9 @@ install:
 activate:
 	poetry shell
 
+html:
+	poetry run python generate_html.py
+
 markdown:
 	poetry run python generate_markdown.py
 
