@@ -13,7 +13,13 @@ Agglomerates stats of several
 $ make install
 ```
 
-### Generate markdown (static)
+### Generate HTML (static)
+
+```bash
+$ make html
+```
+
+### Generate Markdown (static)
 
 ```bash
 $ make markdown
