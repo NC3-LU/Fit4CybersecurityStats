@@ -15,13 +15,12 @@ env = Environment(loader=PackageLoader("fit4cybersecuritystats"))
 
 if __name__ == "__main__":
     # Point of entry in execution mode
-    markdown_content = ""
+    # grab the static resources
+    js_resources = JSResources(mode="inline", minified=True, components=["bokeh"])
+    css_resources = CSSResources(mode="inline", minified=True, components=["bokeh"])
     for instance in INSTANCES:
         stats_data = survey_per_company_sector(instance)
         plot = survey_per_company_sector_chart(stats_data)
-        # grab the static resources
-        js_resources = JSResources(mode="inline", minified=True, components=["bokeh"])
-        css_resources = CSSResources(mode="inline", minified=True, components=["bokeh"])
         html = file_html(plot, (js_resources, css_resources), "my plot")
         # print(html)
         with open("./{}-chart.html".format(instance[0]), 'w') as f:
