@@ -13,23 +13,42 @@ Agglomerates stats of several
 $ make install
 ```
 
-### Generate HTML (static)
+## Configuration
+
+You can create your own configuration file and write it in the folder ```instance```.
+If that is the case you must export its name in an environment variable:
+
+```bash
+export APP_CONFIG="config.py"
+```
+
+
+## Generate HTML (static)
 
 ```bash
 $ make html
 ```
 
-### Generate Markdown (static)
+HTML template is located in ```fit4cybersecuritystats/templates/html```.
+
+
+## Generate Markdown (static)
 
 ```bash
 $ make markdown
 ```
 
-### Launch the web server (dynamic)
+Markdown template is located in ```fit4cybersecuritystats/templates/markdown```.
+
+
+## Launch the web server (dynamic)
 
 ```bash
 $ make runserver
 ```
+
+HTML template is located in ```fit4cybersecuritystats/templates/web```.
+
 
 ## Deploy to Heroku
 
