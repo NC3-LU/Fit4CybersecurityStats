@@ -27,6 +27,7 @@ def fetch(url: str, params: Dict[str, str]) -> JSON:
 def survey_per_company_sector(
     instance: Tuple[str, str], params: Dict[str, str] = {}
 ) -> JSON:
+    """Retrieves the stats for the surveys by companies sectors."""
     url = urljoin(instance[1], "/stats/survey_per_company_sector.json")
     result = fetch(url, params)
     return result

@@ -23,6 +23,8 @@ static/bootstrap_datepicker_plus/
 csskp/config_prod.py
 csskp/config.py
 
+*-chart.html
+
 *.mo
 
 !docker/postgres/data/.gitkeep
