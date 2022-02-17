@@ -18,11 +18,12 @@ if __name__ == "__main__":
     # grab the static resources
     js_resources = JSResources(mode="inline", minified=True, components=["bokeh"])
     css_resources = CSSResources(mode="inline", minified=True, components=["bokeh"])
+    plots = []
     for instance in INSTANCES:
         stats_data = survey_per_company_sector(instance)
-        plot = survey_per_company_sector_chart(stats_data)
-        html = file_html(plot, (js_resources, css_resources), "my plot")
-        # print(html)
-        with open("./{}-chart.html".format(instance[0]), 'w') as f:
-            f.write(str(html))
+        plots.append(survey_per_company_sector_chart(stats_data))
+    html = file_html(plots, (js_resources, css_resources), "Fit4CyberSecurity")
+    # print(html)
+    with open("./stats-chart.html", 'w') as f:
+        f.write(str(html))
     print("HTML pages written.")
