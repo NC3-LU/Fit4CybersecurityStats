@@ -15,7 +15,7 @@ env = Environment(loader=PackageLoader("fit4cybersecuritystats"))
 
 def content_per_company_sector(instance):
     stats_data = survey_per_company_sector(instance)
-    template = env.get_template("survey_per_company_sector.md")
+    template = env.get_template("markdown/survey_per_company_sector.md")
     markdown_content = template.render(instance_name=instance[0], stats_data=stats_data)
     return markdown_content, stats_data
 
