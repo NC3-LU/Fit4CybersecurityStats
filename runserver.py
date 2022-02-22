@@ -65,6 +65,11 @@ def stats():
     return html
 
 
+@application.route("/js/")
+def js():
+    return render_template("web/js.html")
+
+
 @application.route("/human.txt", methods=["GET"])
 def human():
     """Human dot txt page."""
