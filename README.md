@@ -26,7 +26,7 @@ export APP_CONFIG="config.py"
 ## Generate HTML (static)
 
 ```bash
-$ make html
+$ make html output=index.html
 ```
 
 HTML template is located in ```fit4cybersecuritystats/templates/html```.

@@ -15,7 +15,7 @@ activate:
 	poetry shell
 
 html:
-	poetry run python generate_html.py
+	poetry run python generate_html.py --output $(output)
 
 markdown:
 	poetry run python generate_markdown.py
