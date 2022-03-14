@@ -17,6 +17,7 @@ logs/
 
 csskp/static/
 static/npm_components
+fit4cybersecuritystats/static/npm_components
 static/admin/
 static/users/
 static/bootstrap_datepicker_plus/
