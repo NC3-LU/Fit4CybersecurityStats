@@ -10,38 +10,41 @@
 <canvas id="answers-per-category"></canvas>
 
 <script>
-$(document).ready(function() {
-  fetch("https://fit4cybersecurity-demo.cases.lu/stats/answers-per-category.json")
-  .then(response => response.json())
-  .then(result => {
-      let data_sets = [];
-      let labels = [];
-      let i = 0;
-      for (const [key, value] of Object.entries(result.all)) {
+  $(document).ready(function() {
+    ["https://fit4cybersecurity-demo.cases.lu/stats/answers-per-category.json"].map(function(url) {
+      fetch(url)
+      .then(response => response.json())
+      .then(result => {
+        let data_sets = [];
+        let labels = [];
+        let i = 0;
+        for (const [key, value] of Object.entries(result.all)) {
           labels = Object.keys(value);
           data_sets.push({
-              label: key,
-              data: Object.values(value),
-              fill: false,
-              backgroundColor: colors[i],
-              borderColor: colors[i],
-              pointBackgroundColor: colors[i],
-              pointBorderColor: '#fff',
-              pointHoverBackgroundColor: '#fff',
-              pointHoverBorderColor: colors[i]
+            label: key,
+            data: Object.values(value),
+            fill: false,
+            backgroundColor: colors[i],
+            borderColor: colors[i],
+            pointBackgroundColor: colors[i],
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: colors[i]
           })
           i++;
-      }
-      categoryChart.data = result;
-      // document.getElementById("spinner-answers-per-category").innerHTML = "";
-      // document.getElementById("select-category-displayByCountry").style.display = "block";
-      var ctx = document.getElementById("answers-per-category");
-      categoryChart.canvas = radarChart(labels,data_sets,ctx);
-  })
-  .catch((error) => {
-      console.error('Error:', error);
+        }
+        categoryChart.data = result;
+        // document.getElementById("spinner-answers-per-category").innerHTML = "";
+        // document.getElementById("select-category-displayByCountry").style.display = "block";
+        var ctx = document.getElementById("answers-per-category");
+        categoryChart.canvas = radarChart(labels,data_sets,ctx);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+
+    })
   });
-});
 </script>
 <!-- /.container -->
 {% endblock %}

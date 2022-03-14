@@ -80,6 +80,7 @@ function radarChart(labels,data_sets,ctx){
       plugins: {
         legend: {
           position: 'bottom',
+          display: true
         },
       },
     }
