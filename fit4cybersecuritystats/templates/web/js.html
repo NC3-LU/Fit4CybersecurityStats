@@ -3,6 +3,7 @@
 {{ super() }}
 <script type="text/javascript" src="{{ url_for('static', filename='npm_components/jquery/dist/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='npm_components/chart.js/dist/chart.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='charts.js') }}"></script>
 {% endblock %}
 {% block content %}
 <h1>Surveys per company sector</h1>
@@ -32,8 +33,8 @@ $(document).ready(function() {
           i++;
       }
       categoryChart.data = result;
-      document.getElementById("spinner-answers-per-category").innerHTML = "";
-      document.getElementById("select-category-displayByCountry").style.display = "block";
+      // document.getElementById("spinner-answers-per-category").innerHTML = "";
+      // document.getElementById("select-category-displayByCountry").style.display = "block";
       var ctx = document.getElementById("answers-per-category");
       categoryChart.canvas = radarChart(labels,data_sets,ctx);
   })
