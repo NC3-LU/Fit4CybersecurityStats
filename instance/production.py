@@ -9,4 +9,6 @@ INSTANCES = [
     ("Fit4Privacy", "https://fit4privacy.cases.lu"),
     ("OperatorSurvey", "https://operatorsurvey.cases.lu"),
     ("Fit4Privacy Demo", "https://fit4cybersecurity-demo.cases.lu"),
+    ("Fit4Contract", "https://contract.cases.lu"),
+    ("Cyber4Africa", "https://start.cyber4africa.org"),
 ]
