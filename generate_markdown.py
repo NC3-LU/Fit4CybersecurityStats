@@ -1,10 +1,9 @@
 #! /usr/bin/env python
-# -*- coding: utf-8 -*-
+from jinja2 import Environment
+from jinja2 import PackageLoader
 
-from jinja2 import Environment, PackageLoader
-
-from instance.production import INSTANCES
 from fit4cybersecuritystats.fetchers import survey_per_company_sector
+from instance.production import INSTANCES
 
 
 DATE_FROM = ""

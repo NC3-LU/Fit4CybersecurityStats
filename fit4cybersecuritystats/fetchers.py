@@ -1,8 +1,16 @@
 #! /usr/bin/env python
-# -*- coding: utf-8 -*-
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Tuple
+from typing import Type
+from typing import Union
+from urllib.parse import parse_qsl
+from urllib.parse import urlencode
+from urllib.parse import urljoin
+from urllib.parse import urlparse
+from urllib.parse import urlunparse
 
-from typing import Union, List, Dict, Any, Type, Tuple
-from urllib.parse import urljoin, urlencode, urlparse, parse_qsl, urlunparse
 import requests
 
 TIMEOUT = 5
@@ -25,7 +33,7 @@ def fetch(url: str, params: Dict[str, str]) -> JSON:
 
 
 def survey_per_company_sector(
-    instance: Tuple[str, str], params: Dict[str, str] = {}
+    instance: Tuple[str, str], params: Dict[str, str]
 ) -> JSON:
     """Retrieves the stats for the surveys by companies sectors."""
     url = urljoin(instance[1], "/stats/survey_per_company_sector.json")
@@ -33,9 +41,7 @@ def survey_per_company_sector(
     return result
 
 
-def survey_per_company_size(
-    instance: Tuple[str, str], params: Dict[str, str] = {}
-) -> JSON:
+def survey_per_company_size(instance: Tuple[str, str], params: Dict[str, str]) -> JSON:
     url = urljoin(instance[1], "/stats/survey_per_company_size.json")
     result = fetch(url, params)
     return result

@@ -1,16 +1,13 @@
 #! /usr/bin/env python
-# -*- coding: utf-8 -*-
-
-from flask import render_template, request
 from bokeh.embed import components
 from bokeh.resources import INLINE
+from flask import render_template
+from flask import request
 
 from fit4cybersecuritystats.bootstrap import application
-from fit4cybersecuritystats.fetchers import (
-    survey_per_company_sector,
-    survey_per_company_size,
-)
 from fit4cybersecuritystats.charts import survey_per_company_sector_chart
+from fit4cybersecuritystats.fetchers import survey_per_company_sector
+from fit4cybersecuritystats.fetchers import survey_per_company_size
 
 
 @application.route("/")

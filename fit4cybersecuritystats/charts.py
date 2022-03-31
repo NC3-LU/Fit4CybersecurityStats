@@ -1,10 +1,7 @@
 #! /usr/bin/env python
-# -*- coding: utf-8 -*-
-
 from math import pi
 
 import pandas as pd
-
 from bokeh.palettes import Category20c
 from bokeh.plotting import figure
 from bokeh.transform import cumsum

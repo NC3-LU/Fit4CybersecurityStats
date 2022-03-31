@@ -1,14 +1,15 @@
 #! /usr/bin/env python
-# -*- coding: utf-8 -*-
-
 import argparse
-from jinja2 import Environment, PackageLoader
-from bokeh.resources import JSResources, CSSResources
-from bokeh.embed import file_html
 
-from instance.production import INSTANCES
-from fit4cybersecuritystats.fetchers import survey_per_company_sector
+from bokeh.embed import file_html
+from bokeh.resources import CSSResources
+from bokeh.resources import JSResources
+from jinja2 import Environment
+from jinja2 import PackageLoader
+
 from fit4cybersecuritystats.charts import survey_per_company_sector_chart
+from fit4cybersecuritystats.fetchers import survey_per_company_sector
+from instance.production import INSTANCES
 
 
 env = Environment(loader=PackageLoader("fit4cybersecuritystats"))
@@ -52,4 +53,4 @@ if __name__ == "__main__":
     # print(html)
     with open(arguments.output_path, "w") as f:
         f.write(str(html))
-    print("HTML page written in {}.".format(arguments.output_path))
+    print(f"HTML page written in {arguments.output_path}.")
